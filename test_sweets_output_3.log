@@ -1,0 +1,61 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Users\vivek\OneDrive\Desktop\Projects\assignment
+configfile: pytest.ini
+plugins: anyio-4.7.0
+collected 7 items
+
+backend\tests\test_sweets.py .....FF                                     [100%]
+
+================================== FAILURES ===================================
+_____________________________ test_purchase_sweet _____________________________
+
+auth_headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbl8zNzllZjFlMi1hOTc5LTQyZmQtYjFkZi05YTIyNDgzMDZhODkiLCJleHAiOjE3NjU2NDc5NTZ9.1aqm7uEPvckqJATDdSE1u7vJavjo8O3jVKb0z9Wizg0'}
+
+    def test_purchase_sweet(auth_headers):
+        # Create sweet with quantity 10
+        response = client.post(
+            "/api/sweets",
+            json={"name": "Buy Me", "category": "Buy", "price": 1.0, "quantity": 10},
+            headers=auth_headers
+        )
+        sweet_id = response.json()["id"]
+    
+        # Purchase
+        response = client.post(
+            f"/api/sweets/{sweet_id}/purchase",
+            headers=auth_headers
+        )
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_sweets.py:120: AssertionError
+_____________________________ test_restock_sweet ______________________________
+
+auth_headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbl83NThiM2QyMC02NmJkLTQ0YWQtYmYwNC04NjcwOGMxZjJjMGEiLCJleHAiOjE3NjU2NDc5NTd9.uiKn_NFcftJrz5RG1w4_8GERpJYaaiXyMGuXBMn0bhc'}
+
+    def test_restock_sweet(auth_headers):
+        # Create sweet
+        response = client.post(
+            "/api/sweets",
+            json={"name": "Restock Me", "category": "Restock", "price": 1.0, "quantity": 10},
+            headers=auth_headers
+        )
+        sweet_id = response.json()["id"]
+    
+        # Restock
+        response = client.post(
+            f"/api/sweets/{sweet_id}/restock",
+            json={"quantity": 5},
+            headers=auth_headers
+        )
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+backend\tests\test_sweets.py:145: AssertionError
+=========================== short test summary info ===========================
+FAILED backend/tests/test_sweets.py::test_purchase_sweet - assert 404 == 200
+FAILED backend/tests/test_sweets.py::test_restock_sweet - assert 404 == 200
+========================= 2 failed, 5 passed in 6.10s =========================

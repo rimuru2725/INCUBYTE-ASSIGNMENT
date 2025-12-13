@@ -7,6 +7,8 @@ models.Base.metadata.create_all(bind=database.engine)
 app = FastAPI()
 
 app.include_router(auth.router)
+from backend.routers import sweets
+app.include_router(sweets.router)
 
 @app.get("/")
 def read_root():
