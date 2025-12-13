@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Users\vivek\OneDrive\Desktop\Projects\assignment
+configfile: pytest.ini
+plugins: anyio-4.7.0
+collected 2 items
+
+backend\tests\test_auth.py ..                                            [100%]
+
+============================== warnings summary ===============================
+backend\database.py:12
+  C:\Users\vivek\OneDrive\Desktop\Projects\assignment\backend\database.py:12: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+backend/tests/test_auth.py::test_login_user
+  C:\Users\vivek\OneDrive\Desktop\Projects\assignment\backend\auth.py:22: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expire = datetime.utcnow() + timedelta(minutes=15)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 2 passed, 2 warnings in 2.66s ========================

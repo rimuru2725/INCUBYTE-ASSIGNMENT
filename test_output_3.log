@@ -1,0 +1,53 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Users\vivek\OneDrive\Desktop\Projects\assignment
+configfile: pytest.ini
+plugins: anyio-4.7.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+_________________ ERROR collecting backend/tests/test_auth.py _________________
+backend\tests\test_auth.py:2: in <module>
+    from backend.main import app
+backend\main.py:3: in <module>
+    from backend.routers import auth
+backend\routers\auth.py:33: in <module>
+    @router.post("/login")
+     ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\routing.py:1128: in decorator
+    self.add_api_route(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\routing.py:1067: in add_api_route
+    route = route_class(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\routing.py:686: in __init__
+    self.dependant = get_dependant(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\dependencies\utils.py:310: in get_dependant
+    sub_dependant = get_dependant(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\dependencies\utils.py:288: in get_dependant
+    param_details = analyze_param(
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\dependencies\utils.py:525: in analyze_param
+    ensure_multipart_is_installed()
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\dependencies\utils.py:121: in ensure_multipart_is_installed
+    raise RuntimeError(multipart_not_installed_error) from None
+E   RuntimeError: Form data requires "python-multipart" to be installed. 
+E   You can install "python-multipart" with: 
+E   
+E   pip install python-multipart
+============================== warnings summary ===============================
+backend\database.py:12
+  C:\Users\vivek\OneDrive\Desktop\Projects\assignment\backend\database.py:12: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\_internal\_config.py:295
+  C:\Users\vivek\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\_internal\_config.py:295: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.10/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\_internal\_config.py:345
+  C:\Users\vivek\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\_internal\_config.py:345: UserWarning: Valid config keys have changed in V2:
+  * 'orm_mode' has been renamed to 'from_attributes'
+    warnings.warn(message, UserWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR backend/tests/test_auth.py - RuntimeError: Form data requires "python-m...
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+======================== 3 warnings, 1 error in 1.71s =========================
