@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { sweetsService } from '../services/sweetsService';
-import { Sweet } from '../types/sweet';
+import type { Sweet } from '../types/sweet';
 
 export const Dashboard: React.FC = () => {
     const [sweets, setSweets] = useState<Sweet[]>([]);
@@ -106,65 +106,65 @@ export const Dashboard: React.FC = () => {
                         >
                             <option value="">All Categories</option>
                             {categories.map(cat => (
-                                <key = { cat } value = { cat }>{ cat }</option>
-              ))}
-                    </select>
-                    <button onClick={handleSearch} className="btn-primary">
-                        Search
-                    </button>
-                    <button onClick={loadSweets} className="btn-secondary">
-                        Reset
-                    </button>
-                </div>
-            </div>
-        </div>
-
-      {/* Sweets Grid */ }
-    <div className="max-w-7xl mx-auto">
-        {loading ? (
-            <div className="text-center py-12">
-                <div className="text-2xl text-gray-600">Loading sweets...</div>
-            </div>
-        ) : sweets.length === 0 ? (
-            <div className="text-center py-12">
-                <div className="text-2xl text-gray-600">No sweets found</div>
-            </div>
-        ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {sweets.map((sweet) => (
-                    <div key={sweet.id} className="card">
-                        <div className="mb-4">
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">{sweet.name}</h3>
-                            <span className="inline-block bg-sweet-blue text-white px-3 py-1 rounded-full text-sm">
-                                {sweet.category}
-                            </span>
-                        </div>
-
-                        {sweet.description && (
-                            <p className="text-gray-600 text-sm mb-4">{sweet.description}</p>
-                        )}
-
-                        <div className="flex justify-between items-center mb-4">
-                            <span className="text-2xl font-bold text-sweet-purple">
-                                ${sweet.price.toFixed(2)}
-                            </span>
-                            <span className={`text-sm font-semibold ${sweet.quantity > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                                {sweet.quantity > 0 ? `${sweet.quantity} in stock` : 'Out of stock'}
-                            </span>
-                        </div>
-
-                        <button
-                            onClick={() => handlePurchase(sweet.id, sweet.quantity)}
-                            disabled={sweet.quantity === 0}
-                            className={`w-full ${sweet.quantity > 0 ? 'btn-primary' : 'bg-gray-300 text-gray-500 py-2 px-6 rounded-lg cursor-not-allowed'}`}
-                        >
-                            {sweet.quantity > 0 ? 'Purchase' : 'Out of Stock'}
+                                <option key={cat} value={cat}>{cat}</option>
+                            ))}
+                        </select>
+                        <button onClick={handleSearch} className="btn-primary">
+                            Search
+                        </button>
+                        <button onClick={loadSweets} className="btn-secondary">
+                            Reset
                         </button>
                     </div>
-                ))}
+                </div>
             </div>
-        )}
-    </div>
-    </div >
-  );
+
+            {/* Sweets Grid */}
+            <div className="max-w-7xl mx-auto">
+                {loading ? (
+                    <div className="text-center py-12">
+                        <div className="text-2xl text-gray-600">Loading sweets...</div>
+                    </div>
+                ) : sweets.length === 0 ? (
+                    <div className="text-center py-12">
+                        <div className="text-2xl text-gray-600">No sweets found</div>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {sweets.map((sweet) => (
+                            <div key={sweet.id} className="card">
+                                <div className="mb-4">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-2">{sweet.name}</h3>
+                                    <span className="inline-block bg-sweet-blue text-white px-3 py-1 rounded-full text-sm">
+                                        {sweet.category}
+                                    </span>
+                                </div>
+
+                                {sweet.description && (
+                                    <p className="text-gray-600 text-sm mb-4">{sweet.description}</p>
+                                )}
+
+                                <div className="flex justify-between items-center mb-4">
+                                    <span className="text-2xl font-bold text-sweet-purple">
+                                        ${sweet.price.toFixed(2)}
+                                    </span>
+                                    <span className={`text-sm font-semibold ${sweet.quantity > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                                        {sweet.quantity > 0 ? `${sweet.quantity} in stock` : 'Out of stock'}
+                                    </span>
+                                </div>
+
+                                <button
+                                    onClick={() => handlePurchase(sweet.id, sweet.quantity)}
+                                    disabled={sweet.quantity === 0}
+                                    className={`w-full ${sweet.quantity > 0 ? 'btn-primary' : 'bg-gray-300 text-gray-500 py-2 px-6 rounded-lg cursor-not-allowed'}`}
+                                >
+                                    {sweet.quantity > 0 ? 'Purchase' : 'Out of Stock'}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </div >
+    );
 };

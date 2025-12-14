@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { sweetsService } from '../services/sweetsService';
-import { Sweet, CreateSweetData } from '../types/sweet';
+import type { Sweet, CreateSweetData } from '../types/sweet';
 
 export const AdminPanel: React.FC = () => {
     const [sweets, setSweets] = useState<Sweet[]>([]);
