@@ -1,5 +1,5 @@
 import api from './api';
-import { Sweet, CreateSweetData, UpdateSweetData, SearchParams } from '../types/sweet';
+import type { Sweet, CreateSweetData, UpdateSweetData, SearchParams } from '../types/sweet';
 
 export const sweetsService = {
     async getAll(): Promise<Sweet[]> {
