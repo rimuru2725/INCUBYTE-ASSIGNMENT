@@ -143,8 +143,8 @@ npm test -- auth.test.ts
 ### Dashboard
 ![Dashboard](./screenshots/dashboard.png)
 
-### Admin Panel
-![Admin Panel](./screenshots/admin.png)
+### Register
+![Register](./screenshots/register.png)
 
 ## 🤖 My AI Usage
 
