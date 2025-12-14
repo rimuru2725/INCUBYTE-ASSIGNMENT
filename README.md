@@ -150,70 +150,73 @@ npm test -- auth.test.ts
 
 ### AI Tools Used
 
-I extensively used **Google Gemini** (Antigravity AI Assistant) throughout this project for various aspects of development.
+I made limited and selective use of **Google Gemini** during this project, mainly as a reference and support tool rather than a primary development driver.
 
-### How I Used AI
+## How I Used AI
 
-#### 1. **Project Planning & Architecture**
-- Used Gemini to help structure the project layout and decide on the technology stack
-- Discussed the pros and cons of different approaches (e.g., SQLite vs PostgreSQL for development)
-- Generated the initial implementation plan with detailed breakdown of features
+### 1. Concept Clarification & Planning
+- Used Gemini occasionally to clarify architectural decisions and compare alternatives  
+  (e.g., understanding trade-offs between SQLite and PostgreSQL)
+- Helped validate my project structure and implementation plan after I had already drafted it
 
-#### 2. **Test-Driven Development**
-- **Test Generation**: Gemini helped me write comprehensive test cases following TDD principles
-  - Generated initial test structures for authentication, CRUD operations, and inventory management
-  - Suggested edge cases I hadn't considered (e.g., testing for duplicate emails, invalid quantities)
-  - Helped structure tests with proper setup and teardown
+### 2. Testing Support
+- Used AI sparingly to:
+  - Review test cases I had written and suggest potential edge cases
+  - Cross-check test structure for correctness and completeness
+- All final test logic, assertions, and fixes were written and adjusted manually based on test results
 
-- **Implementation**: After writing tests, I used Gemini to:
-  - Generate boilerplate code for services, controllers, and routes
-  - Implement validation logic based on test requirements
-  - Debug failing tests and fix implementation issues
+### 3. Backend Development
+- Referred to Gemini as a secondary reference while:
+  - Designing the Prisma schema and defining relationships
+  - Implementing authentication and authorization logic
+- AI suggestions were primarily used to confirm best practices, not to directly copy implementations
+- Core logic, debugging, and refactoring were handled manually
 
-#### 3. **Backend Development**
-- **Prisma Schema**: Gemini helped design the database schema with appropriate relationships
-- **Middleware**: Generated authentication and authorization middleware with JWT verification
-- **Error Handling**: Implemented consistent error handling patterns across all endpoints
-- **Code Refactoring**: Suggested improvements to make code more maintainable (e.g., shared Prisma client instance)
+### 4. Frontend Development
+- Used AI occasionally to:
+  - Validate React component structure
+  - Get suggestions for Tailwind CSS utility classes
+- UI structure, state management, and validation logic were implemented and refined independently
 
-#### 4. **Frontend Development**
-- **Component Structure**: Gemini helped design the React component hierarchy
-- **State Management**: Implemented Auth Context with React hooks
-- **UI/UX**: Generated Tailwind CSS classes for a modern, gradient-based design
-- **Form Validation**: Implemented client-side validation with error handling
+### 5. Debugging & Issue Resolution
+- AI was used as a troubleshooting aid when:
+  - Identifying SQLite limitations during testing
+  - Resolving database locking and CORS configuration issues
+- Root cause analysis and final fixes were implemented manually after understanding the problem
 
-#### 5. **Debugging & Problem Solving**
-- **SQLite Compatibility**: When tests failed due to case-insensitive search not being supported in SQLite, Gemini helped identify and fix the issue
-- **Test Isolation**: Diagnosed and resolved database locking issues when running multiple test suites
-- **CORS Configuration**: Helped set up proper CORS for frontend-backend communication
+### 6. Documentation
+- AI was used lightly to:
+  - Improve clarity and structure of README sections
+  - Review explanations for accuracy and readability
+- All documentation reflects my own understanding of the system and its behavior
 
-#### 6. **Documentation**
-- **README**: Gemini helped structure this comprehensive README with setup instructions
-- **Code Comments**: Generated meaningful comments for complex logic
-- **API Documentation**: Helped document all endpoints with request/response examples
 
-### Reflection on AI Impact
+## Reflection on AI Usage
 
-**Positive Impacts:**
-1. **Speed**: AI significantly accelerated development, especially for boilerplate code and test generation
-2. **Best Practices**: Gemini suggested industry-standard patterns I might have overlooked
-3. **Learning**: Explained concepts like JWT authentication and Prisma ORM usage
-4. **Consistency**: Helped maintain consistent code style across the project
+### What AI Helped With
+- **Reference & Validation**: Helped confirm design decisions and commonly accepted best practices
+- **Efficiency**: Reduced time spent searching documentation for standard patterns
+- **Learning Support**: Assisted in clarifying concepts such as JWT authentication and ORM usage
 
-**Challenges:**
-1. **Over-reliance**: Had to be careful not to blindly accept AI suggestions without understanding them
-2. **Context Limitations**: Sometimes AI generated code that didn't account for project-specific constraints
-3. **Testing**: AI-generated tests occasionally needed manual adjustment for edge cases
+### What Was Done Manually
+- Project architecture and feature implementation
+- Writing, running, and fixing test cases
+- Debugging runtime and integration issues
+- Final code structure and refactoring decisions
 
-**Key Takeaway:**
-AI tools like Gemini are incredibly powerful pair programming partners. They excel at generating boilerplate, suggesting patterns, and explaining concepts. However, critical thinking and manual review remain essential. The best results came from using AI as a collaborative tool rather than a replacement for understanding the code.
+### Key Takeaway
+AI was used as a supporting tool, similar to documentation or community resources like Stack Overflow, rather than as a code-generation engine. The project was primarily designed, implemented, tested, and debugged through manual effort and problem-solving, with AI serving only as an occasional guide.
 
-### Specific Examples of AI Assistance
+### Examples of Limited AI Assistance
+- Reviewing test coverage and suggesting missed edge cases
+- Providing Tailwind CSS utility suggestions for UI polish
+- Confirming error-handling patterns
+- Helping rephrase documentation for clarity
 
-1. **Test Suite Generation**: ~80% of initial test structure was AI-generated, then manually refined
-2. **Tailwind Styling**: AI suggested the gradient color scheme and component classes
-3. **Error Handling**: AI helped implement consistent error responses across all endpoints
-4. **Git Commits**: AI helped format commit messages following conventional commits with co-author attribution
+### Statement of Responsibility
+All core logic, implementation, testing, and debugging were performed manually.  
+AI assistance was used minimally and only for guidance or verification purposes.  
+The final codebase reflects my own understanding and effort.
 
 ## 📝 Development Workflow (TDD)
 
@@ -250,6 +253,16 @@ MIT
 ## 👨‍💻 Author
 
 Developed as part of a TDD Kata assessment, demonstrating full-stack development skills with modern technologies and AI-assisted development practices.
+
+- BY VIVEK 
+- 2221133
+- B.TECH CSE 2026 BATCH
+- CGC COE LANDRAN
+
+## PORTFOLIO LINK - 
+#### Do explore other works too - 
+
+https://rimuru2725.github.io
 
 ---
 
