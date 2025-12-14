@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { CreateSweetDto, UpdateSweetDto, SearchSweetDto } from '../types/sweet.types';
-
-const prisma = new PrismaClient();
+import prisma from '../utils/prisma';
 
 export class SweetsService {
     async createSweet(data: CreateSweetDto) {

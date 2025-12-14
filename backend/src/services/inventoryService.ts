@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
 import { PurchaseDto, RestockDto } from '../types/sweet.types';
-
-const prisma = new PrismaClient();
+import prisma from '../utils/prisma';
 
 export class InventoryService {
     async purchaseSweet(id: string, data: PurchaseDto) {
